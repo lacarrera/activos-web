@@ -1,0 +1,791 @@
+﻿<%@ Master Language="VB" AutoEventWireup="true" CodeFile="Site.master.vb" Inherits="SiteMaster" %>
+
+<!DOCTYPE html>
+<html lang="es">
+<head runat="server">
+  <title>ACTIVOS FIJOS</title>
+  <asp:PlaceHolder runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <!-- Bootstrap 3.3.6 -->
+    <link rel="stylesheet" href='<%= ResolveClientUrl("~/bootstrap/css/bootstrap.min.css")%>'>
+    <!-- Font Awesome -->
+    <script src="https://use.fontawesome.com/d2639ceada.js"></script>
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+    <!-- Bootstrap time Picker -->
+    <!-- Select2 -->
+    <link rel="stylesheet" href='<%= ResolveClientUrl("~/plugins/select2/select2.min.css")%>'>
+    <link rel="stylesheet" href='<%= ResolveClientUrl("~/plugins/alertify/alertify.min.css")%>'>
+    <link rel="stylesheet" href='<%= ResolveClientUrl("~/plugins/alertify/bootstrap.min.css")%>'>
+    <!-- Theme style -->
+    <link rel="stylesheet" href='<%= ResolveClientUrl("~/dist/css/AdminLTE.min.css")%>'>
+    <!-- AdminLTE Skins. Choose a skin from the css/skins
+       folder instead of downloading all of them to reduce the load. -->
+    <link rel="stylesheet" href='<%= ResolveClientUrl("~/dist/css/skins/_all-skins.min.css")%>'>
+   
+    <script src='<%= ResolveClientUrl("~/plugins/jQuery/jquery-2.2.3.min.js")%>'></script>
+    <script src='<%= ResolveClientUrl("~/plugins/jQuery-UI/jquery-ui.js")%>'></script>
+   
+    <!-- Bootstrap 3.3.6 -->
+    <script src='<%= ResolveClientUrl("~/bootstrap/js/bootstrap.min.js")%>'></script>
+    <script src='<%= ResolveClientUrl("~/plugins/alertify/alertify.min.js")%>'></script>
+   
+
+    <script src='<%= ResolveClientUrl("~/plugins/select2/select2.full.min.js")%>'></script>
+      <script src='<%= ResolveClientUrl("~/Scripts/jquery.mask.min.js")%>'></script>
+    <script type="text/javascript">
+      var idioma = '<%= Session("Idioma") %>';
+             <% If Session("Idioma") = "IN" Then %>
+      alertify.defaults.glossary.ok = "Ok";
+      alertify.defaults.glossary.cancel = "Cancel";
+           <% else %>
+      alertify.defaults.glossary.ok = "Aceptar";
+      alertify.defaults.glossary.cancel = "Cancelar";
+            <% End If%>
+      alertify.defaults.transition = "fade";
+      alertify.defaults.theme.ok = "btn  btn-default";
+      alertify.defaults.theme.cancel = "btn  btn-default";
+      alertify.defaults.theme.input = "form-control";
+      alertify.defaults.glossary.title = "First Majestic- Silver Corp";
+      function alertaError(msg) {
+        alertify.error(msg);
+        return false;
+      }
+      function alerta(msg) {
+        //un alert
+        alertify.alert(msg, function () {
+
+        });
+      }
+      function muestraCargador() {
+                $("#fotoUsuario").hide();
+        $("#cargador").show();
+        $(" .overlay").show();
+        $("#cargador").show();
+      }
+      function ocultarCargador() {
+                $("#fotoUsuario").show();
+        $("#cargador").hide();
+        $(" .overlay").hide();
+        $("#cargador").hide();
+      }
+      // ********************** Funcion para mover el scroll a la posicion que se requiera ******************
+      function goToByScroll(value) {
+        if ($(value).length > 0) {
+          $("body,html").scrollTop($(value).offset().top-90);
+        }
+      }
+      //*****************************
+      function root_notificacion(icono, titulo, mensaje, tiempo, tipo) {
+                $.notify({
+                  icon: icono,
+            title: '<strong>'+titulo+'</strong>',
+            message: mensaje
+            
+                }, {
+                  type: 'warning',
+            animate: {
+              enter: 'animated fadeInDown',
+              exit: 'animated fadeOutUp'
+            },
+            delay: 1000,
+            timer: tiempo,
+            z_index: 1051,
+            placement: {
+              from: "bottom",
+              align: "right"
+            },
+          });
+         
+      }
+
+     
+          
+      //*****************************************************************************************************
+            function acomodaLogo() {
+              if ($("#navbar-collapse").width() >= 850) {
+               // $("#logo").attr("src", "<%= ResolveClientUrl("~/dist/img/fm_white3.svg")%>");
+                $("#logo").width(50);
+                if ($("#navbar-collapse").width() >= 850) {
+                  $("#elHeader").removeClass('container');
+                  if ($(".navbar ").height() > 50)
+                    changeMenu();
+              }
+                
+
+              }
+              else {
+               // $("#logo").attr("src", "<%= ResolveClientUrl("~/dist/img/fm_white3.svg")%>");
+                $("#logo").width(190);
+              }
+              //$("#logo").show();
+            }
+       //************************************************************************************************************************
+          function cambiaPresentacion() {
+                       if ($("div.ajuste.container").length > 0) {
+              maximiza = "max";
+            }
+            else {
+              maximiza = "min";
+            }
+                    $('div.ajuste').toggleClass("container");
+                       acomodaLogo();
+            var valores = {
+              presentacionPantalla: maximiza,
+            };
+            $.ajax({
+                type: "POST",
+                url: '<%= ResolveClientUrl("~/default.aspx/cambiarPresentacion")%>',
+                data: "{presentacionPantalla: '" + maximiza + "'}",
+
+                contentType: "application/json; charset=utf-8",
+                cache: false,
+                global: false,
+                dataType: "json"
+            });
+           fijaCabezera();
+          }
+      //****************************** para cambiar la presentacion de todo el sitio ************************************
+           //****************************** para cambiar menu todo el sitio ************************************
+          function changeMenu() {
+            if ($("body.sidebar-mini").length > 0) {
+             // maximiza = "max";
+              menuOrientacion = "horizontal";
+              $('body').removeClass("sidebar-mini").addClass("layout-top-nav");
+              $('#MenuPrincipal').show();
+              $('#MenuPrincipalSide').hide();
+              $('table.table').trigger('reflow');
+              $('#botonMenu').hide();
+              $('.main-sidebar').hide();
+              $('#grupoPresentacion').show();
+              $('#burgerButton').attr('data-target', '#navbar-collapse ');
+
+              
+              if  (maximiza == "max")
+                    $('div.ajuste').removeClass("container");
+                else
+               // $('div.ajuste').addClass("container");
+              acomodaLogo();
+            }
+            else {
+              //maximiza = "max";
+              $('div.ajuste').removeClass("container");
+              menuOrientacion = "vertical"
+              $('body').removeClass("layout-top-nav").addClass("sidebar-mini");
+              $('#MenuPrincipal').hide();
+              $('.main-sidebar').show();
+              $('#MenuPrincipalSide').show();
+              $('table.table').trigger('reflow');
+              $('#grupoPresentacion').hide();
+              $('#burgerButton').attr('data-target', '');
+              //$('.main-sidebar').css({ 'transform': 'translate(0,0)' });//muestra el menu
+             // $("#logo").attr("src", "<%= ResolveClientUrl("~/dist/img/fm_white.svg")%>");
+              $("#logo").width(190);
+              $('#botonMenu').show();
+              $('#menuVisible').iCheck('check');
+              $('.main-sidebar').css({ 'transform': 'translate(-230px,0)' });
+             }
+    
+            $.ajax({
+          type: "POST",
+          url: '<%= ResolveClientUrl("~/default.aspx/cambiarMenu")%>',
+              data: "{ cualMenu: '" + menuOrientacion + "'}",
+
+          contentType: "application/json; charset=utf-8",
+          cache: false,
+          global: false,
+          dataType: "json"  
+        });
+
+           
+          };
+      var maximiza;
+      $(document).on('click.bs.dropdown.data-api', '.dropdown .keep-open-on-click', (event) => {
+        event.stopPropagation();
+      });
+      $(document).ready(function () {
+
+         
+
+
+
+
+
+              ////acomodaLogo();
+              //checaincidentes = function () {
+              //  var size = $("#grid_razones tr").size();
+              //  if (size > 1) {
+              //    $("#abrir_incidente i").css('color', '#ff9800');
+              //    $("#abrir_incidente i").html('<span class="label notifica" >' + (size - 1) + '</span>');
+              //  }
+              //  else {
+              //    $("#abrir_incidente i").css('color', $('.btn-app').css('color'));
+              //    $("#abrir_incidente i .label").remove();
+              //  }
+              //}
+              //$('#mymodal').on('hidden.bs.modal', function () {
+              //  checaincidentes();
+              //})
+             // $("#fondo").attr("src", "<%= ResolveClientUrl("~/dist/img/")%>" + $("#backgroundImage").val());
+                $("#fondo").hide();
+
+                $("#patron").css('background-image', "url(<%= ResolveClientUrl("~/dist/img/")%>" + $('#patronImage').val() + ")");
+            });
+            
+   
+    </script>
+  </asp:PlaceHolder>
+  <%-- <webopt:bundlereference runat="server" path="~/Content/css" />--%>
+  <style>
+    .dropdown-menu > .active > a, .dropdown-menu > .active > a:focus, .dropdown-menu > .active > a:hover {
+      background-color: #000000;
+    }
+
+    .has-error .select2-selection {
+      border: 1px solid #a94442;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body class="hold-transition skin-black layout-top-nav skin">
+   
+  <form id="MiForm" runat="server" autocomplete="off">
+    <asp:ScriptManager runat="server" EnablePageMethods="True" EnableScriptGlobalization="True">
+    </asp:ScriptManager>
+    <div class="wrapper">
+      <header class="main-header">
+        <nav class="navbar navbar-fixed-top" style="border-bottom: 2px solid rgb(255, 255, 255);">
+          <div id="elHeader" class="ajuste">
+            <div class="navbar-header">
+              <a href="<%= ResolveClientUrl("~/Default.aspx")%>">
+                <%--<img id="logo" src="<%= ResolveClientUrl("~/dist/img/fm_white3.svg")%>" alt="First Majestic Silver Corp" style=" width: 190px; height: 38px; padding-top: 7px; margin: 3px">--%>
+
+              </a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling probablemente la siguiente linea no va -->
+            <div class="collapse in navbar-collapse pull-left" id="navbar-collapse">
+              <asp:Menu ID="MenuPrincipal" SkipLinkText="" runat="server" Orientation="Vertical" RenderingMode="List" Style="display: none; cursor: pointer; width: 100%; font-size: .90em"
+                IncludeStyleBlock="False" StaticMenuStyle-CssClass="nav navbar-nav " DynamicMenuStyle-CssClass="dropdown-menu"
+                DataSourceID="SiteMapDS" meta:resourcekey="MenuPrincipalResource1">
+              </asp:Menu>
+              <asp:SiteMapDataSource ID="SiteMapDataSource1" runat="server" ShowStartingNode="False" />
+
+            </div>
+            <!-- /.navbar-collapse -->
+            <!-- Navbar Right Menu -->
+            <!-- /.navbar-custom-menu -->
+            <div class="navbar-custom-menu">
+              <ul class="nav navbar-nav">
+
+             <%--   <li class="hidden-xs">
+                  <a title="Activar / Desactivar Tablero" onclick='toggleGraph();' style="padding: 6px 3px 6px 3px; height: 50px;"><span class="fa-stack fa-lg">
+  <i class="fa fa-circle fa-stack-2x"></i>
+  <i class="fa fa-signal fa-stack-1x fa-inverse" style="color:black"></i>
+</span></a>
+                
+                </li>--%>
+                <% If Session("Idioma") = "IN" Then %>
+                <li class="hidden-xs">
+                  <asp:HyperLink ID="HyperLink_Spanish" runat="server"
+                    NavigateUrl="~/IdiomaES.aspx"
+                    ToolTip="Cambiar de Idioma a Español" meta:resourcekey="HyperLink_SpanishResource1" Style="padding: 6px 0px 6px 0px"><img src="<%= ResolveClientUrl("~/dist/img/mexico_flag_round.png")%>" class="img-circle"   style="width:50px" /></asp:HyperLink>
+                </li>
+                <% Else%>
+                <li class="hidden-xs">
+                  <asp:HyperLink ID="HyperLink_English" runat="server"
+                    NavigateUrl="~/IdiomaEN.aspx"
+                    ToolTip="Change language to English" meta:resourcekey="HyperLink_EnglishResource1" Style="padding: 6px 0px 6px 0px"><img src="<%= ResolveClientUrl("~/dist/img/canada_flag_round.png")%>" class="img-circle"  style="width:50px" /></asp:HyperLink>
+                </li>
+                <% End If%>
+                <!-- User Account Menu -->
+                <li class="dropdown user user-menu">
+                  <!-- Menu Toggle Button -->
+                  <a href="#" class="dropdown-toggle " data-toggle="dropdown" style="padding: 6px; height: 50px">
+                    <img id="fotoUsuario" src="<%= Session("fotoUsuario") %>" class="user-image" alt="User Image" style="display: none">
+                    <span id="cargador" class="fa-stack fa-lg" data-toggle="tooltip" title="Espera un momento, cargando...">
+
+
+                      <i class="fa fa-circle fa-stack-2x"></i>
+                      <i class="fa fa-cog fast-spin fa-stack-1x " style="color: black;"></i>
+                    </span>
+                    <!-- hidden-xs hides the username on small devices so only the image appears. -->
+                  </a>
+                  <ul class="dropdown-menu">
+                    <!-- The user image in the menu -->
+                    <li class="user-header">
+                      <img src="<%= Session("fotoUsuario") %>" class="fotoPerfil" alt="User Image">
+
+                      <asp:Image ID="ImagenUnidad" runat="server" />
+                      <p style="text-align: right">
+                          <div Style="font-size: .7em; color:white; text-align: right">
+                          <asp:Literal runat="server" Text="<%$ resources:globalResources, tituloPortal %>"  />
+                                                 <br/>
+                        <asp:Label ID="unidad" runat="server" meta:resourcekey="unidadResource1" ></asp:Label>
+                                                 </div>
+ <br/>
+                        <div Style="font-size: .8em; color:white; text-align: right">
+                          <%= Session("nombreCompleto") %> <br/>
+                         
+                           <asp:Label ID="usuario1" runat="server" meta:resourcekey="usuario1Resource1"></asp:Label>  <%= Session("idtrab") %></div>
+
+                      </p>
+                    </li>
+                    <!-- Menu Footer-->
+                    <li class="user-footer">
+               
+                                              
+                      <div>
+                                  
+                        <%--************************* Botones ********************************************--%>
+                         <%If Page.User.Identity.IsAuthenticated Then%>
+                        <div class=" keep-open-on-click input-group">
+                           <asp:DropDownList
+                            ID="DDL_Sociedad" runat="server" CssClass="form-control" style="font-size:12px"   EnableViewState="False">
+                        </asp:DropDownList>
+
+                          <div class="input-group-addon" style="padding: 2px 9.5px;">
+                            <i class="fas fa-retweet"></i>
+                          </div>
+                        </div>
+                        <%End If%>
+                        <div class="input-group">
+                          <a class="btn btn-default btn-flat btn-block " href="<%= ResolveClientUrl("~/ActualizarUsuario.aspx")%>">
+                            <asp:Literal runat="server" Text="<%$ resources:globalResources, actualizarusuario %>" /></a>
+                          <div class="input-group-addon">
+                            <i class="far fa-user"></i>
+                          </div>
+                        </div>
+                        <div id="grupoPresentacion" class="input-group">
+                           <Button ID="changePresentation" type="button"    class="btn btn-default btn-flat btn-block " onclick="cambiaPresentacion();" >
+
+                            <asp:Literal runat="server" Text="<%$ resources:globalResources, cambiarPresentacion %>" /></button>
+                          <div class="input-group-addon">
+                            <i class="fas fa-expand-arrows-alt"></i>
+                          </div>
+                        </div>
+                        <div class="input-group">
+                           <Button ID="cambiaMenu" type="button"    class="btn btn-default btn-flat btn-block " onclick="changeMenu();" >
+
+                            <asp:Literal runat="server" Text="<%$ resources:globalResources, cambiarMenu %>" /></button>
+                          <div class="input-group-addon">
+                            <i class="fas fa-bars"></i>
+                          </div>
+                        </div>
+                        <div class="input-group">
+                          <% If Session("Idioma") = "IN" Then %>
+                          <asp:HyperLink ID="IdiomaEspanol" runat="server"
+                            NavigateUrl="~/IdiomaES.aspx"
+                            CssClass="btn btn-default btn-flat btn-block "><asp:Literal runat="server" Text="<%$ resources:globalResources, cambiarIdioma %>" /></asp:HyperLink>
+                          <% Else%>
+                          <asp:HyperLink ID="IdiomaIngles" runat="server"
+                            NavigateUrl="~/IdiomaEN.aspx"
+                            CssClass="btn btn-default btn-flat btn-block "><asp:Literal runat="server" Text="<%$ resources:globalResources, cambiarIdioma %>" /></asp:HyperLink>
+                          <% End If%>
+                          <div class="input-group-addon">
+                            <i class="fas fa-globe"></i>
+                          </div>
+                        </div>
+                        <div class="input-group">
+                          <a class="btn btn-default btn-flat btn-block " id="diagrama" href='<%= ResolveClientUrl("~/dist/img/DiagramaProcesoBitaMina.pdf")%>' target="_blank">
+                            <asp:Literal runat="server" Text="<%$ resources:globalResources, diagrama %>" /></a>
+                          <div class="input-group-addon" style="padding: 2px 9.5px;">
+                            <i class="fas fa-project-diagram"></i>
+                          </div>
+                        </div>
+                        <asp:LoginView ID="LoginView1" runat="server" EnableViewState="False">
+                          <AnonymousTemplate>
+                            <a class="btn btn-default btn-flat btn-block" href="~/Account/Login.aspx" id="HeadLoginStatus" runat="server">Iniciar sesión</a>
+                          </AnonymousTemplate>
+                          <LoggedInTemplate>
+                            <asp:LoginStatus ID="LoginStatus1" CssClass="btn btn-block btn-warning " Style="margin-top: 5px;" runat="server" LogoutAction="Redirect" LogoutPageUrl="~/CerrarSesion.aspx" LogoutText="<%$ resources:globalResources, logoutSession %>" />
+                          </LoggedInTemplate>
+                        </asp:LoginView>
+                        <%--<a class="btn btn-default btn-flat btn-block" href="<%= ResolveClientUrl("~/CerrarSesion")%>">Cerrar Sesion</a>--%>
+                      </div>
+                      <asp:HiddenField ID="backgroundImage" runat="server"></asp:HiddenField>
+                      <asp:HiddenField ID="patronImage" runat="server"></asp:HiddenField>
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <button type="button" class="btn btn-primary btn-flat navbar-toggle collapsed pull-right hidden-lg " data-toggle="collapse" id="burgerButton"  onclick="burgerButtonMenu();" data-target="#navbar-collapse " style="padding: 6px 10px 6px 10px; margin-top: 6px">
+                    <i class="fa fa-bars"></i>
+                  </button>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <!-- /.container-fluid -->
+        </nav>
+      </header>
+      <div id ="botonMenu" class="botonMenu"  >
+        <div  class="texto-vertical"><asp:Literal runat="server" Text="<%$ resources:globalResources, menu %>" /></div>
+      </div>
+      <aside class="main-sidebar" style="display: none; ">
+        <!-- sidebar: style can be found in sidebar.less -->
+
+        <section class="sidebar" style=" overflow: hidden;"  >
+          <!-- Sidebar user panel -->
+          <div class="user-panel" style="background-color: rgba(38,49,55,0.4)">
+            <label class="switch" style="color:#b8c7ce" >
+              <i class="fa fa-outdent" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;<asp:Literal runat="server" Text="<%$ resources:globalResources, menuPlegable %>" />&nbsp;&nbsp;
+             <input type="checkbox" ID="menuVisible"  Class="square"/>
+              <asp:HiddenField ID="varVisible" ClientIDMode="Static" runat="server" />
+                
+
+            </label>
+
+          </div>
+          <ul class="sidebar-menu">
+            <!-- sidebar menu: : style can be found in sidebar.less -->
+            <asp:Menu ID="MenuPrincipalSide" runat="server" Orientation="Vertical" RenderingMode="List" Style="display: none; cursor: pointer; width: 100%;"
+              IncludeStyleBlock="False" StaticMenuStyle-CssClass="nav sidebar-menu" DynamicMenuStyle-CssClass="dropdown-menu"
+              DataSourceID="SiteMapDS" meta:resourcekey="MenuPrincipalResource1">
+            </asp:Menu>
+            <asp:SiteMapDataSource ID="SiteMapDS" runat="server" ShowStartingNode="False" />
+          </ul>
+        </section>
+                 <div class="barraMenu"></div>  
+       
+
+        <!-- /.sidebar -->
+      </aside>
+      <%--Div para tapar ventana mientras se carga otra--%>
+      <div class="overlay" style="z-index: 900; opacity: .5; position: fixed; height: 100%; width: 100%; background-color: rgba(51, 51, 51, 0.82); left: 0; top: 0px;"></div>
+      <div class="overlay" style="z-index: 901; left: 50%; top: 50%; position: fixed;">
+        <span class="fa-stack fa-3x fa-lg">
+          <i class="fa fa-circle fa-3x  fa-stack-2x" style=" color: rgba(0, 0, 0, 0.70);"></i>
+          <i class="fa fa-cog  fa-spin fa-bounce  fa-stack-1x fast-spin " style="color: rgb(255, 255, 255);"></i>
+        </span>
+      </div>
+      <%-- ************************Scroll To Top y scroll lateral para tablas responsivas *************************************--%>
+      <a href="javascript:" id="return-to-top" class="return-to-top"><i class="fa fa-chevron-up"></i></a>
+      <a class="mueveDer"><i class="fa fa-chevron-left"></i></a>
+      <a class="mueveIzq"><i class="fa fa-chevron-right"></i></a>
+      <%--*******************************************************************************--%>
+      <div id="contenedorPrincipal" class="content-wrapper">
+        <div class="ajuste">
+          <div id="contenedorSecundario" class="content">
+            <!-- Content Header (Page header) -->
+            <section class="content-header">
+              <%-- *********************************************************************************************************************Titulo de la sección de los sitios--%>
+              <h1>
+                <p id="seccionActual"><i id="icon" class="fa fa-chevron-circle-right"></i></p>
+              </h1>
+
+              <%--  <h1><%= Session("NombreSociedad") %></h1>--%>
+              <div class="breadcrumb" style="background: rgba(255,255,255,0.15); font-style: italic; font-size: 12px;">
+                <li><a href="<%= ResolveClientUrl("~/Default.aspx")%>"><i class="fa fa-industry"></i><%= Session("NombrePantalla") %></a></li>
+                <asp:SiteMapPath ID="SiteMapPath2" runat="server" RenderCurrentNodeAsLink="True" meta:resourcekey="SiteMapPath2Resource1"></asp:SiteMapPath>
+              </div>
+            </section>
+            <!-- Main content -->
+            <section class="content" style="position: relative;">
+              <%-- *********************************************************************************************************************En esta parte va el contenido general de los sitios--%>
+              <asp:ContentPlaceHolder ID="MainContent" runat="server">
+              </asp:ContentPlaceHolder>
+              <br />
+              <br />
+              <br />
+              <br />
+              <br />
+              <!-- /.box -->
+            </section>
+          </div>
+        </div>
+      </div>
+      <footer class="main-footer" style="left: 0px; z-index: 899">
+        <div class="ajuste">
+          <div class="pull-right hidden-xs">
+            <strong>Copyright &copy;
+                    <asp:Label ID="anioActual" runat="server" Text="Label" meta:resourcekey="anioActualResource1"></asp:Label>
+              <a href="https://www.firstmajestic.com/">First Majestic</a>.</strong> All rights reserved.
+                        <b>Version</b>
+            <asp:Label ID="version" runat="server" Text="1.0" meta:resourcekey="versionResource1"></asp:Label>
+          </div>
+          <div class="pull-left" style="position: relative; overflow: hidden; border-radius: 1em;">
+            <div class="ambiente">
+              <i id="semaforo" class="fa fa-dot-circle-o" aria-hidden="true"></i>
+              <asp:Label ID="ambienteText" runat="server" Text="Label"></asp:Label>
+            </div>
+            <div id="tagId" class="hidden-xs deslizaIdAntes">
+              <i class="fas fa-user-circle"></i>
+              <asp:Label ID="usuario" runat="server" meta:resourcekey="usuarioResource1"></asp:Label>
+            </div>
+            <%--<div id="tagUnidad" class="hidden-xs deslizaUnidadAntes">
+              <i class="fa fa-industry" aria-hidden="true"></i>
+              <asp:Literal runat="server" Text="<%$ resources:globalResources, unidad %>" />
+              "<%= Session("NombreSociedad") %>"
+            </div>--%>
+          </div>
+        </div>
+        <!-- /.container -->
+      </footer>
+    </div>
+    <div style="z-index: -400; opacity: 1; position: fixed; height: 100%; width: 100%; background-color: darkgray; left: 0; top: 0px;">
+
+      <div class="degradado">
+        
+       <div id="fondoBlancoLogo" style=""></div>
+       <img id="fondo" alt="" style="left: 0; top: 0; position: absolute; bottom: 0; margin: auto; right: 0; width:30%;" />
+
+         <div id="patron" style="height: 100%; width: 100%">
+        </div>
+      </div>
+    </div>
+  </form>
+  <script>
+      $(document).ready(function () {
+          //Initialize Select2 Elements
+          if ($(".select2").length > 0) {
+              $(".select2").select2();
+          }
+
+      });
+  </script>
+  <script type="text/javascript">
+    //Disable the default MouseOver functionality of ASP.Net Menu control.
+    Sys.WebForms.Menu._elementObjectMapper.getMappedObject = function () {
+      return false;
+    };
+   
+    
+    //**************************************************************
+    function burgerButtonMenu() {
+      
+      if ($("body.sidebar-mini").length > 0) {
+        $('#navbar-collapse').attr('data-target', '');
+
+        if ($("body.sidebar-open").length > 0) {
+          $('body').removeClass("sidebar-open");
+          $('.main-sidebar').css({ 'transform': 'translate(-230px,0px)' });
+        }
+        else {
+          $('body').addClass("sidebar-open");
+          $('.main-sidebar').css({ 'transform': 'translate(0px,0px)' });
+        }
+      }
+      else
+        $('#burgerButton').attr('data-target', '#navbar-collapse ');
+
+      $('table.table').trigger('reflow');
+    };
+    //**************************** Otro Ready ******************************
+    $(function () {
+       $('#<%=DDL_Sociedad.ClientID %>').on("change", function (e) {
+              // what you would like to happen
+                $.ajax({
+                    cache: true,
+                    async: false,
+                    type: "POST",
+                    url: '<%= ResolveUrl("Default.aspx/Cambiarsociedad") %>',
+                    data: "{valor: '" + $('#<%=DDL_Sociedad.ClientID %> OPTION:selected').val() + "'}",
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    success: function (response) {
+
+                        var r = response.d.split("☑");
+                        if (r[0] == "Error:") {
+                          alerta("Error:" + r[1]);
+                        }
+                        else {
+                          var SociedadActual = $('#<%=DDL_Sociedad.ClientID %> OPTION:selected').val()
+                          localStorage.setItem("cualSociedad", SociedadActual  );
+                           location.reload();
+                        }               
+                    },
+                    failure: function (response) {
+                        alert(response.d);
+                    }
+                });
+                return false;
+
+
+          });
+      function menuHeader() {
+        $("#MenuPrincipal .navbar-nav, #MenuPrincipal .navbar-nav li, #MenuPrincipal .navbar-nav a, #MenuPrincipal .navbar-nav ul").removeAttr('style').removeClass('dynamic').removeClass('static').removeClass('popout').removeClass('level1').removeClass('level2');
+        //Apply the Bootstrap class to the Submenu.
+        $("#MenuPrincipal .dropdown-menu").closest("li").removeClass().addClass("dropdown");
+        //Apply the Bootstrap class to the Submenu.
+        $("#MenuPrincipal .level3.dropdown-menu ").closest("li").removeClass().addClass("dropdown-submenu");
+        $("#MenuPrincipal .level4.dropdown-menu ").closest("li").removeClass().addClass("dropdown-submenu");
+        //Apply the Bootstrap properties to the Submenu.
+        $("#MenuPrincipal .dropdown").find("a:first").addClass("dropdown-toggle").attr("data-toggle", "dropdown").attr("aria-expanded", "true").append("<span class='caret'></span>");
+        //Apply the Bootstrap "active" class to the selected Menu item.
+        $("#MenuPrincipal a.selected").closest("li").addClass("active");
+        $("#MenuPrincipal a.selected").closest(".dropdown-toggle").addClass("active");
+        $("#MenuPrincipal a[href$='/Default.aspx']").html('<i class="fa fa-home " aria-hidden="true"></i>');
+      }
+      function menuSide() {
+     
+        // $(".content-wrapper").css("margin-left", "230px");
+        $("#MenuPrincipalSide .sidebar-menu, #MenuPrincipalSide .sidebar-menu li, #MenuPrincipalSide .sidebar-menu a, #MenuPrincipalSide .sidebar-menu ul").removeAttr('style').removeClass('dynamic').removeClass('static').removeClass('popout').removeClass('level1').removeClass('level2');
+        $(" #MenuPrincipalSide .sidebar-menu ul").removeClass().addClass("treeview-menu");
+        //Apply the Bootstrap class to the Submenu.
+        $("#MenuPrincipalSide .dropdown-menu").closest("li").removeClass().addClass("treeview-menu");
+        //Apply the Bootstrap class to the Submenu.
+        $("#MenuPrincipalSide .level3.dropdown-menu ").closest("li").removeClass().addClass("treeview");
+        $("#MenuPrincipalSide .level4.dropdown-menu ").closest("li").removeClass().addClass("treeview");
+        //Apply the Bootstrap properties to the Submenu.
+  $("#MenuPrincipalSide .treeview-menu").closest("li").find("a:first").append("<i class='fas fa-angle-left pull-right'></i>");
+        $("#MenuPrincipalSide .treeview-menu a").prepend('<i class="fas fa-circle" style="top: -3px;font-size: 7px;position: relative;margin-right: 5px;"></i>');
+        //Apply the Bootstrap "active" class to the selected Menu item.
+        $("#MenuPrincipalSide a.selected").closest("li").addClass("active");
+        $("#MenuPrincipalSide a.selected").closest(".dropdown-toggle").addClass("active");
+        var home = $("#MenuPrincipalSide a[href$='/Default.aspx']").html();
+        $("#MenuPrincipalSide a[href$='/Default.aspx']").html('<i class="fa fa-home " aria-hidden="true"></i>' + home);
+      }
+      //******************** pone el contenido a la derecha o no segun lo que se seleccione el usuario
+      var checkBox = document.getElementById("menuVisible");
+      if (checkBox.checked == true) {
+        $('#contenedorPrincipal').removeClass("content-wrapper").addClass("content");
+        $('.main-sidebar').css({ 'transform': 'translate(-230px,0)' });
+      } else {
+        $('#contenedorPrincipal').addClass("content-wrapper").removeClass("content");
+        $('.main-sidebar').css({ 'transform': 'translate(0px,0px)' });
+      }
+      //***********************************************************
+
+      menuHeader();
+      menuSide();
+      //********************* acomoda el logo **************
+      acomodaLogo();
+      //*************************************************
+      //burgerButtonMenu();
+
+         // $("#logo").show();
+          //Esconde el cargador de loader y el div de Overlay
+      $(" .overlay").hide();
+      $("#fotoUsuario").show();
+      $("#cargador").hide();
+         // $("#cargador").attr('class', 'fa fa-id-card  fa-stack-1x');
+          //Muestra el cargador de ventanas y el div de Overlay, para las opciones de menu que tienen link
+          $("#MenuPrincipal [href], #MenuPrincipalSide [href] ").click(function () {
+            $(" .overlay").show();
+            $("#fotoUsuario").hide();
+            $("#cargador").show();
+          });
+          if ($("#seccionActual").text() == "") {
+
+            $("#seccionActual").append(" " + $(".breadcrumb span span a ").last().text().toUpperCase());
+          }
+          $('#icon').addClass('gira');
+          $('#tagUnidad').addClass('deslizaId');
+          $(' #tagId').addClass('deslizaUnidad');
+          $('#ideLabel').addClass('deslizaIdeLabel');
+          //*********************** Esta parte activa el head de los tables para permanecer visibles******************************* 
+     
+       
+      //***************** Aqui se configura que el menu se mantenga visible o se oculte solo *******************
+      $("#menuVisible").on('ifChanged', function (e) {
+        
+        var checkBox = document.getElementById("menuVisible");
+        if (checkBox.checked == true) {
+          var valor = 1
+          $('#botonMenu').show();
+          $('#contenedorPrincipal').removeClass("content-wrapper").addClass("content");
+         // $('#scontenedorSecundario').addClass("container");
+        } else {
+          var valor = 0
+          $('#botonMenu').hide();
+          $('#contenedorPrincipal').addClass("content-wrapper").removeClass("content");
+          //$('#contenedorSecundario').removeClass("container");
+        }
+        $('table.table').trigger('reflow');
+        var valores = {
+          varVisible: valor,
+        };
+
+        $.ajax({
+          type: "POST",
+          url: '<%= ResolveClientUrl("~/default.aspx/mantenerMenu")%>',
+          data: "{varVisible : '" + valor + "'}",
+
+          contentType: "application/json; charset=utf-8",
+          cache: false,
+          global: false,
+          dataType: "json"  
+        });
+
+      });
+      //************* Oculta menu o lo muestra segun el mouse ****************************
+      $(".main-sidebar").mouseenter(function () {
+        if (document.getElementById("menuVisible").checked) {
+          $('.main-sidebar').css({'transform'         : 'translate(0,0)'});
+        }
+      });
+      $(".main-sidebar").mouseleave(function () {
+        if (document.getElementById("menuVisible").checked)  {
+
+          $('.main-sidebar').css({ 'transform': 'translate(-230px,0)' });
+        }
+      });
+      
+
+          //********************************************************* Aqui se ajustan las cabezeras de los tables al tope*****************************
+          //$('table.table').floatThead('destroy');
+          //var $cabezera = $('table.table');
+
+          //$cabezera.floatThead({
+          //  top: pageTop,
+          //  position: 'absolute'
+          //});      
+          fijaCabezera();
+          //************************************ Acciones cuando se detecta desconexión ************************************
+          Offline.options = {
+            checkOnLoad: false,
+            interceptRequests: true,
+            requests: true,
+          };
+          var
+              $online = $('.online'),
+              $offline = $('.offline');
+          Offline.on('confirmed-down', function () {
+            $(" .overlay").show();
+            $(" .overlay").css("z-index", "10000");
+            $(".offline-ui").css("z-index", "10100");
+          });
+          Offline.on('confirmed-up', function () {
+            $(" .overlay").hide();
+          });
+    });
+    //********************** Funcion para adaptar los modales al tamaño de la pantalla**************************
+    function setModalMaxHeight(element) {
+      this.$element = $(element);
+      this.$content = this.$element.find('.modal-content');
+      var borderWidth = this.$content.outerHeight() - this.$content.innerHeight();
+      var dialogMargin = $(window).width() < 768 ? 20 : 60;
+      var contentHeight = $(window).height() - (dialogMargin + borderWidth);
+      var headerHeight = this.$element.find('.modal-header').outerHeight() || 0;
+      var footerHeight = this.$element.find('.modal-footer').outerHeight() || 0;
+      var maxHeight = contentHeight - (headerHeight + footerHeight);
+
+      this.$content.css({
+        'overflow': 'hidden'
+      });
+
+      this.$element
+        .find('.modal-body').css({
+          'max-height': maxHeight,
+          'overflow-y': 'auto'
+        });
+    }
+    $('.modal').on('show.bs.modal', function () {
+      $(this).show();
+      setModalMaxHeight(this);
+    });
+    $(window).resize(function () {
+
+      if ($('.modal.in').length != 0) {
+
+        setModalMaxHeight($('.modal.in'));
+      }
+    });
+    //************************************************************************************
+  </script>
+</body>
+</html>

@@ -1,0 +1,540 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="actualizarUsuario" xml:space="preserve">
+    <value>Actualizar Usuario</value>
+  </data>
+  <data name="ambienteDev" xml:space="preserve">
+    <value>Desarrollo</value>
+  </data>
+  <data name="ambientePro" xml:space="preserve">
+    <value>Productivo</value>
+  </data>
+  <data name="cambiarIdioma" xml:space="preserve">
+    <value>Cambiar Idioma</value>
+  </data>
+  <data name="cambiarPresentacion" xml:space="preserve">
+    <value>Cambiar Presentacion</value>
+  </data>
+  <data name="cancel" xml:space="preserve">
+    <value>Cancelar</value>
+  </data>
+  <data name="cancel_delete" xml:space="preserve">
+    <value>¡Se cancelo la eliminación!</value>
+  </data>
+  <data name="cancel_update" xml:space="preserve">
+    <value>Se cancelo el cambio de mina</value>
+  </data>
+  <data name="confirm_delete" xml:space="preserve">
+    <value>¿Esta seguro de eliminar este reporte permanentemente?</value>
+  </data>
+  <data name="confirm_update" xml:space="preserve">
+    <value>Al cambiar la Mina Borrara todos los Resultados del Reporte. Desea continuar</value>
+  </data>
+  <data name="ok" xml:space="preserve">
+    <value>Aceptar</value>
+  </data>
+  <data name="shure" xml:space="preserve">
+    <value>¿Estas seguro?</value>
+  </data>
+  <data name="success_delete" xml:space="preserve">
+    <value>El reporte ha sido eliminado</value>
+  </data>
+  <data name="success_update" xml:space="preserve">
+    <value>Se cambio la Mina del Reporte</value>
+  </data>
+  <data name="tipoCapturaAcarreo" xml:space="preserve">
+    <value>Captura de hoja de pueble en Acarreo Camion Bajo Perfil</value>
+  </data>
+  <data name="tipoCapturaJumbo" xml:space="preserve">
+    <value>Captura de hoja de pueble en Barrenación Jumbo</value>
+  </data>
+  <data name="tipoCapturaLarga" xml:space="preserve">
+    <value>Captura de hoja de pueble en Barrenacion Larga</value>
+  </data>
+  <data name="tipoCapturaPierna" xml:space="preserve">
+    <value>Captura de hoja de pueble en Máquina de Pierna</value>
+  </data>
+  <data name="tipoCapturaRezagado" xml:space="preserve">
+    <value>Captura de hoja de pueble en Rezagado Scoop Tram</value>
+  </data>
+  <data name="tipoCapturaSemiLarga" xml:space="preserve">
+    <value>Captura de hoja de pueble en Barrenacion Semilarga</value>
+  </data>
+  <data name="tipoCapturaServicios" xml:space="preserve">
+    <value>Captura de hoja de pueble Servicios</value>
+  </data>
+  <data name="tituloPortal" xml:space="preserve">
+    <value>PORTAL DE ACTIVOS FIJOS</value>
+  </data>
+  <data name="total_record" xml:space="preserve">
+    <value>Total de Registros</value>
+  </data>
+  <data name="unidad" xml:space="preserve">
+    <value>Unidad</value>
+  </data>
+  <data name="nofound_record" xml:space="preserve">
+    <value>&lt;h4&gt;&lt;i class="icon fa fa-info-circle"&gt;&lt;/i&gt;Attention&lt;/h4&gt; Dont found Records</value>
+  </data>
+  <data name="actividadesAlmacenadas" xml:space="preserve">
+    <value>Actividades Almacenadas</value>
+  </data>
+  <data name="eliminar_encabezado" xml:space="preserve">
+    <value> Borrar</value>
+  </data>
+  <data name="guardar_encabezado" xml:space="preserve">
+    <value> Guardar</value>
+  </data>
+  <data name="serviciosAlmacenados" xml:space="preserve">
+    <value>Servicios Almacenados</value>
+  </data>
+  <data name="viajesAlmacenados" xml:space="preserve">
+    <value>Viajes Almacenados</value>
+  </data>
+  <data name="keepSession" xml:space="preserve">
+    <value>Mantener conectado</value>
+  </data>
+  <data name="logoutSession" xml:space="preserve">
+    <value>Cerrar Sesión</value>
+  </data>
+  <data name="messageSession" xml:space="preserve">
+    <value>Tu sessión de trabajo, esta cerca de expirar, debido a incatividad</value>
+  </data>
+  <data name="titleSesion" xml:space="preserve">
+    <value>¡Su sesión está a punto de caducar!</value>
+  </data>
+  <data name="zoom" xml:space="preserve">
+    <value>Desliza el mouse por encima de la imagen y desplaza el boton central para ver detalles</value>
+  </data>
+  <data name="cambiarMenu" xml:space="preserve">
+    <value>Cambiar Menú</value>
+  </data>
+  <data name="renglones_copiado" xml:space="preserve">
+    <value>Renglones copiados y Disponibles para pegar</value>
+  </data>
+  <data name="save" xml:space="preserve">
+    <value>Guardar</value>
+  </data>
+  <data name="borrar" xml:space="preserve">
+    <value> Borrar</value>
+  </data>
+  <data name="buscar" xml:space="preserve">
+    <value>Buscar</value>
+  </data>
+  <data name="editar" xml:space="preserve">
+    <value>Editar</value>
+  </data>
+  <data name="limpiar" xml:space="preserve">
+    <value>Limpiar</value>
+  </data>
+  <data name="comment" xml:space="preserve">
+    <value>Comentar</value>
+  </data>
+  <data name="message" xml:space="preserve">
+    <value>Escribe tu mensaje aquí...</value>
+  </data>
+  <data name="subtitleComment" xml:space="preserve">
+    <value>Utiliza esta herramienta para aclarar detalles acerca de las medidas con tu equipo</value>
+  </data>
+  <data name="titleComment" xml:space="preserve">
+    <value>Comentarios para </value>
+  </data>
+  <data name="atencion" xml:space="preserve">
+    <value>¡Atención!</value>
+  </data>
+  <data name="cambioReporte" xml:space="preserve">
+    <value> a realizado modificaciones en este reporte, te recomendamos guardar tus capturas y continuar trabajando</value>
+  </data>
+  <data name="aprobarGelogiaTitulo" xml:space="preserve">
+    <value>Aprobar geología</value>
+  </data>
+  <data name="aprobarMedidaTitulo" xml:space="preserve">
+    <value>Aprobar medida</value>
+  </data>
+  <data name="capturarGelogiaTitulo" xml:space="preserve">
+    <value>Capturar geología</value>
+  </data>
+  <data name="tour" xml:space="preserve">
+    <value>Guía paso a paso</value>
+  </data>
+  <data name="errorAjax" xml:space="preserve">
+    <value>Ha ocurrido un error al realizar esta acción, por favor intentalo nuevamente o recarga el portal!</value>
+  </data>
+  <data name="exportExcel" xml:space="preserve">
+    <value>Exportar a excel</value>
+  </data>
+  <data name="generarReporteTitulo" xml:space="preserve">
+    <value>Generar reporte topografía</value>
+  </data>
+  <data name="capturaMedidaTitulo" xml:space="preserve">
+    <value>Edición reportes topografia</value>
+  </data>
+  <data name="botonMensaje" xml:space="preserve">
+    <value>Diagrama de proceso Bitacora de Mina</value>
+  </data>
+  <data name="descripcionMensaje" xml:space="preserve">
+    <value>Te invitamos a descargar el archivo PDF del portal, en él  podras observar de una manera más global las diferentes áreas y roles implicados durante el proceso del portal, lo cual te ayudará a entender lo importante de tu trabajo</value>
+  </data>
+  <data name="tituloMensaje" xml:space="preserve">
+    <value>Conoce el proceso completo del portal</value>
+  </data>
+  <data name="autorizarGeologia" xml:space="preserve">
+    <value>Aprobar geologias</value>
+  </data>
+  <data name="autorizarTopografia" xml:space="preserve">
+    <value>Aprobar todas las medidas</value>
+  </data>
+  <data name="diagrama" xml:space="preserve">
+    <value>Diagrama de proceso</value>
+  </data>
+  <data name="noautorizarGeologia" xml:space="preserve">
+    <value>Desaprobar  geologias</value>
+  </data>
+  <data name="noautorizarTopografia" xml:space="preserve">
+    <value>Desaprobar  medidas</value>
+  </data>
+  <data name="mensajes" xml:space="preserve">
+    <value>Chat</value>
+  </data>
+  <data name="notRecorded" xml:space="preserve">
+    <value>Aun no se ha guardado el Reporte</value>
+  </data>
+  <data name="registroCargado" xml:space="preserve">
+    <value>Cargando registro en área de detalle...</value>
+  </data>
+  <data name="guardando" xml:space="preserve">
+    <value>Se ha guardado el registro puedes continuar...</value>
+  </data>
+  <data name="menuPlegable" xml:space="preserve">
+    <value>  Menú plegable</value>
+  </data>
+  <data name="menu" xml:space="preserve">
+    <value>&lt;i class="fa fa-chevron-circle-right" aria-hidden="true"&gt;&lt;/i&gt; MENÚ</value>
+  </data>
+  <data name="String1" xml:space="preserve">
+    <value />
+  </data>
+  <data name="seccPueble" xml:space="preserve">
+    <value>Sección puebles</value>
+  </data>
+  <data name="seccReal" xml:space="preserve">
+    <value>Sección Real</value>
+  </data>
+  <data name="borrado" xml:space="preserve">
+    <value>El registro ha sido borrado de este reporte</value>
+  </data>
+  <data name="confirm_delete_register" xml:space="preserve">
+    <value>Estas seguro de borrar este registro?</value>
+  </data>
+  <data name="adjuntos" xml:space="preserve">
+    <value>Aqui el sistema nos permite de manera opcional, subir archivos PDF, que respalde las medidas y avances registrados</value>
+  </data>
+  <data name="aprobadaGeologia" xml:space="preserve">
+    <value>Si consideras que los datos de Geologia ya son los correctos , puedes utilizar este boton para checar todas las casillas de una sola vez, o igual para desaprobarlas</value>
+  </data>
+  <data name="aprobadaGeologia1" xml:space="preserve">
+    <value>Si consideramos que los datos de Geología ya están capturados correctamente, debes marcar esta casilla para su aprobación, de esta manera los geologos ya no puedo hacer cambios en este lugar.</value>
+  </data>
+  <data name="aprobarCaptura" xml:space="preserve">
+    <value>Bienvenido! a la guia paso a paso para el módulo de &lt;STRONG&gt;APROBACION TOPOGRAFÍA&lt;/STRONG&gt;. &lt;/br&gt;&lt;/br&gt; tu rol es el de APROBACIÓN, tu objetivo es revisar las capturas desplegadas en la tabla que realizaron los topografos y si son correctas hacer check en la columna de topografía</value>
+  </data>
+  <data name="aprobarGeologia" xml:space="preserve">
+    <value>Bienvenido  a la guia paso a paso para &lt;STRONG&gt;APROBACION GEOLOGÍA&lt;/STRONG&gt;,  la cual te ayudará a entender su proceso. &lt;/br&gt;&lt;/br&gt;Tu  rol es el de JEFE DE GEOLOGÍA, tu tarea es validar o aprobar en los campos correspondientes por cada uno de los lugares en los que se trabajo, la cantidad de Mineral, cantidad de tepetate asi como las Leyes de Plata y Oro para este rango de fecha</value>
+  </data>
+  <data name="atras" xml:space="preserve">
+    <value>Atras</value>
+  </data>
+  <data name="autorizaTopografia" xml:space="preserve">
+    <value>Si consideras que los datos de Topografía ya son los correctos , puedes utilizar este boton para checar todas las casillas de una sola vez, o igual para desaprobarlas</value>
+  </data>
+  <data name="autorizaTopografia1" xml:space="preserve">
+    <value>Si consideramos que los datos de Topografía ya están correctamente capturados debes checar esta casilla para aprobación, de esta manera topografía ya no puedo realizar cambios en este lugar</value>
+  </data>
+  <data name="capturaMedida" xml:space="preserve">
+    <value>Bienvenido  a la guia paso a paso para el módulo &lt;STRONG&gt;CAPTURA MEDIDA TOPOGRAFÍA&lt;/STRONG&gt;,  la cual te ayudará a entender su proceso. &lt;/br&gt;&lt;/br&gt;Tu  rol es el de TOPOGRAFO, tu objetivo es capturar los datos correspondientes por cada uno de los lugares para este rango de fecha</value>
+  </data>
+  <data name="chkGeologia" xml:space="preserve">
+    <value>Si esta columna esta checada,  este lugar ya fue aprobado por el jefe de Geologia y no podras realizar cambios en este lugar, por el contrario, si no aparece checada, el jefe esta esperando que captures la información correspondiente a este lugar</value>
+  </data>
+  <data name="cMineral" xml:space="preserve">
+    <value>Utiliza esta columna para capturar la cantidad de Mineral real obtenido para cada uno de los lugares</value>
+  </data>
+  <data name="cTepetate" xml:space="preserve">
+    <value>Utiliza esta columna para capturar la cantidad de Tepetate real obtenido para cada uno de los lugares</value>
+  </data>
+  <data name="eliminarEncabezado" xml:space="preserve">
+    <value>En esta opción tienes la opción de eliminar el reporte que haz creado, utilizalo con precaución.</value>
+  </data>
+  <data name="encabezado" xml:space="preserve">
+    <value>En esta parte se encuentran los datos generales del reporte actual, nombre, fecha de medición y archivos adjuntos de respaldo</value>
+  </data>
+  <data name="entendido" xml:space="preserve">
+    <value>Entendido</value>
+  </data>
+  <data name="fechaMedicion" xml:space="preserve">
+    <value>Fecha en que topografia levanto la medida topográfica en mina</value>
+  </data>
+  <data name="grid" xml:space="preserve">
+    <value>En esta sección el sistema despliega un concentrado de todos los lugares que tuvieron actividades o disparos basado en el registro de puebles</value>
+  </data>
+  <data name="guardarEncabezado" xml:space="preserve">
+    <value>Una vez que termines de capturar la información correspondiente por cada uno de los lugares, debes guardar el reporte</value>
+  </data>
+  <data name="intro" xml:space="preserve">
+    <value>Bienvenido a la guía paso a paso para el módulo &lt;STRONG&gt; CAPTURA GEOLOGÍA &lt;/STRONG&gt;, la cual te ayuda a entender su proceso. &lt;/br&gt; &lt;/br&gt; Tu rol es el de GEOLOGÍA, tu tarea es capturar en los campos correspondientes por cada uno de los lugares en los que trabajas, la cantidad de Mineral, cantidad de tiempo como las Leyes de Plata y Oro para este rango de fecha</value>
+  </data>
+  <data name="lnkView" xml:space="preserve">
+    <value>Utiliza esta columna para enviar o recibir comentarios a tu equipo y aclarar detalles con respecto a un LUGAR especifico de medida</value>
+  </data>
+  <data name="lnkView_eliminar" xml:space="preserve">
+    <value>Aqui puedes borrar el lugar seleccionado, si no quieres que aparezca en esta medida topografica</value>
+  </data>
+  <data name="lOro" xml:space="preserve">
+    <value>Utiliza esta columna para capturar la Ley  de Oro real obtenido para cada uno de los lugares</value>
+  </data>
+  <data name="lPlata" xml:space="preserve">
+    <value>Utiliza esta columna para capturar la Ley  de Plata real obtenido para cada uno de los lugares</value>
+  </data>
+  <data name="M3" xml:space="preserve">
+    <value>Asigna los metros cubicos obtenidos en este lugar si es el caso</value>
+  </data>
+  <data name="ML" xml:space="preserve">
+    <value>Asigna los metros lineales para este lugar en caso de ser un desarrollo</value>
+  </data>
+  <data name="nombreReporte" xml:space="preserve">
+    <value>En este campo se encuentra el nombre del reporte, el cual esta formado por las palabras ReporteTopografia, el nombre de contratista o sindicato y finalmente el rango inicial y final del reporte</value>
+  </data>
+  <data name="reales" xml:space="preserve">
+    <value>Utiliza esta columna para asignar un ANCHO y ALTO de sección REAL obtenido en campo</value>
+  </data>
+  <data name="regenerar" xml:space="preserve">
+    <value>Si no aparecen algunos lugares en el concentrado de lugares del reporte, puedes utilizar esta opción, para regenerar este reporte y se incluiran los lugares faltantes.</value>
+  </data>
+  <data name="salir" xml:space="preserve">
+    <value>Salir</value>
+  </data>
+  <data name="siguiente" xml:space="preserve">
+    <value>Siguiente</value>
+  </data>
+  <data name="tempoAutoriza" xml:space="preserve">
+    <value>Si esta columna esta checada,  este lugar ya fue aprobado por el jefe de topografía  y no podras realizar cambios en este lugar, por el contrario, si no aparece checada, el jefe de topografía esta esperando que captures la información correspondiente a este lugar</value>
+  </data>
+  <data name="toneladas" xml:space="preserve">
+    <value>Captura las toneladas obtenidas en este lugar y para el rango de fecha, si es que se obtuvierón</value>
+  </data>
+  <data name="tools" xml:space="preserve">
+    <value>Exporta el reporte a formato PDF o Excel cuando lo requieras</value>
+  </data>
+  <data name="visualizaColumnas" xml:space="preserve">
+    <value>Herramienta para activar o desactivar columnas en la tabla para una mejor visualización</value>
+  </data>
+  <data name="confirm_remove_register" xml:space="preserve">
+    <value>Estas seguro de quitar este lugar de la medida topografica?</value>
+  </data>
+  <data name="descartado" xml:space="preserve">
+    <value>El lugar ha sido descartado de esta medida topográfica</value>
+  </data>
+  <data name="descartar" xml:space="preserve">
+    <value>Descartar</value>
+  </data>
+  <data name="quitar" xml:space="preserve">
+    <value>Quitar</value>
+  </data>
+  <data name="registroDescartado" xml:space="preserve">
+    <value>ha quitado un lugar de esta medida topográfica, te recomendamos grabar y actualizar</value>
+  </data>
+  <data name="registroRemovido" xml:space="preserve">
+    <value>El Lugar se ha removido de la medida topográfica</value>
+  </data>
+  <data name="graba" xml:space="preserve">
+    <value>Registros editados</value>
+  </data>
+  <data name="nograba" xml:space="preserve">
+    <value>Registro bloqueado, por otro usuario</value>
+  </data>
+  <data name="avanceMts" xml:space="preserve">
+    <value>Metros de Avance Aprox.</value>
+  </data>
+  <data name="dia" xml:space="preserve">
+    <value>Día</value>
+  </data>
+  <data name="graficar" xml:space="preserve">
+    <value>Graficar</value>
+  </data>
+  <data name="mes" xml:space="preserve">
+    <value>Mes</value>
+  </data>
+  <data name="semana" xml:space="preserve">
+    <value>selecciona una semana</value>
+  </data>
+  <data name="year" xml:space="preserve">
+    <value>Año</value>
+  </data>
+  <data name="disparos" xml:space="preserve">
+    <value>Disparos semanales</value>
+  </data>
+  <data name="horasMensaje" xml:space="preserve">
+    <value>Horas perdidas esta semana</value>
+  </data>
+  <data name="incumplimientos" xml:space="preserve">
+    <value>Incumplimientos 4M</value>
+  </data>
+  <data name="masInfo" xml:space="preserve">
+    <value>Más info</value>
+  </data>
+  <data name="metersMineral" xml:space="preserve">
+    <value>Metros Mineral</value>
+  </data>
+  <data name="metersTepetate" xml:space="preserve">
+    <value>Metros tepetate</value>
+  </data>
+  <data name="toneladasTumbe" xml:space="preserve">
+    <value>Toneladas Tumbe</value>
+  </data>
+  <data name="tonsMineral" xml:space="preserve">
+    <value>Toneladas Mineral</value>
+  </data>
+  <data name="tonsTepetate" xml:space="preserve">
+    <value>Toneladas Tepetate</value>
+  </data>
+  <data name="incidentes" xml:space="preserve">
+    <value>Captura de fallas o Incumplimientos</value>
+  </data>
+  <data name="totalDisparos" xml:space="preserve">
+    <value>Disparos realizados esta semana</value>
+  </data>
+  <data name="campos_obligatorios" xml:space="preserve">
+    <value>Campos obligatorios</value>
+  </data>
+  <data name="enPlan" xml:space="preserve">
+    <value>El lugar en el que se trabajo, pertenece al PLAN de trabajo establecido o se trabajo en otro lugar?</value>
+  </data>
+  <data name="agregar" xml:space="preserve">
+    <value>Agregar</value>
+  </data>
+  <data name="mtsBarrenados" xml:space="preserve">
+    <value>Total de metros barrenados según la longitud total de barrenos</value>
+  </data>
+  <data name="acero" xml:space="preserve">
+    <value>Acero</value>
+  </data>
+  <data name="explosivo" xml:space="preserve">
+    <value>explosivo</value>
+  </data>
+</root>

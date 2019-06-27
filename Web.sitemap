@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
+  
+    <siteMapNode roles="*">
+    
+      <siteMapNode title="Página Principal"	url="~/Default.aspx"	description="Portal Activos Fijos" roles="Soporte,Seguridad,Activos Fijos,Mantenimiento,Lectura"/>
+      
+      <siteMapNode title="Unique ID" url="" description="Generar UID" roles="Soporte,Activos Fijos,Lectura">
+      <siteMapNode title="Generar UID"	url="~/Captura/GenerarUID.aspx" description="" roles="Soporte,Activos Fijos,Lectura"/>
+      <siteMapNode title="Reimprimir QR"	url="~/Captura/ReimprimirQR.aspx" description="" roles="Soporte,Activos Fijos,Lectura"/>
+       </siteMapNode>
+
+      <siteMapNode title="Unique ID" url="" description="UID" roles="ninguno">
+        <siteMapNode title="Ver UID"	url=""	description="Ver UID"/>
+        <siteMapNode title="Listado de UID"	url=""	description="Listado UID"/>
+      </siteMapNode>
+
+      <siteMapNode title="Índice de Activos" url="~/Catalogos/IndiceMateriales.aspx" description="Índice de Activos" roles="Soporte,Activos Fijos,Lectura"/>
+      <siteMapNode title="Inventario" url="" description="Configuracion de portal" roles="Administrador">
+        <siteMapNode title="Kilometrajes"	url=""	description="Administrador"/>
+       </siteMapNode>
+
+      <siteMapNode title="Kilometrajes" url="" description="UID" roles="Soporte,Activos Fijos,Lectura,Mantenimiento">
+      
+      </siteMapNode>
+      
+      <siteMapNode title="Gestión de Usuarios" url="" description="Gestión de usuarios" roles="Soporte,Activos Fijos,Lectura,Mantenimiento">
+        <siteMapNode title="Crear usuario"	url="~/Configuracion/Register.aspx"	description=""/>
+        <siteMapNode title="Activar/desactivar usuario"	url="~/Configuracion/ActivarUsuario.aspx"	description=""/>
+        <siteMapNode title="Actualizar usuarios"	url="~/Configuracion/ActualizarUsuario.aspx"	description=""/>
+        <!--<siteMapNode title="Restablecer contraseña"	url="~/Configuracion/RestartPassword.aspx"	description=""/>-->
+      </siteMapNode>
+
+
+    
+    </siteMapNode>
+  
+  
+</siteMap>

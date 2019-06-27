@@ -1,0 +1,153 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
+  <siteMapNode roles="*">
+    <siteMapNode title="Home" url="~/Default.aspx" description=""/>
+       <siteMapNode title="herramientas Usuario" url="" description="Captura de Reportes" >
+      <siteMapNode title="Update Password"	url="~/ActualizarUsuario.aspx"	description=""/>
+    </siteMapNode>
+
+    <siteMapNode title="Plan" url="" description="Reportes Generales" roles="AdministradorUsuarios">
+      <siteMapNode title="Plan Operativo mensual (POM)"	url="~/Plan/RegistrarPlan.aspx" description=""   />
+    </siteMapNode>
+
+		 
+    <siteMapNode title="Captura Puebles" url="" description="Captura de Reportes"  roles="CapturaSandimas">
+      <!--<siteMapNode title="Captura"	url="~/Captura/CapturaSandimas/CapturaHojaTiempo.aspx"	description="" roles="CapturaSandimas"  />-->
+      <siteMapNode title="Capturar"	url="~/Captura/CapturaSandimas/DashBoardHojaTiempo.aspx"	description="" roles="CapturaSandimas"  />
+    </siteMapNode>
+ 
+	<siteMapNode title="San Dimas Reports" url="" description="Consultation of Reports" roles="CapturaSandimas,ConsultaSandimas">
+      <siteMapNode title="Assistance Reports"	url="~/Reportes/ReportesSandimas/ReporteAsistencia.aspx" description=""  />
+      <siteMapNode title="Puebles Reports"	url="~/Reportes/ReportesSandimas/Reporteador.aspx" description=""  />
+      <siteMapNode title=" Horometer Reports"	url="~/Reportes/ReportesSandimas/ReporteHorometro.aspx" description=""  />
+        <siteMapNode title="Maintenance Reports "	url="~/Reportes/ReportesGenerales/ReporteMantenimiento.aspx" description=""   />
+    </siteMapNode>
+	
+    <siteMapNode title="Register" url="" description="Captura de Reportes"  roles="Captura, capturaSantaElena">
+      <siteMapNode title="Jackleg Drilling"	url="~/Captura/MaquinaPierna/CapturaPierna.aspx" description="" roles="Captura, capturaSantaElena"  />
+      <siteMapNode title="Jumbo Drilling" 	url="~/Captura/Jumbo/CapturaJumbo.aspx"	description="" roles="Captura, capturaSantaElena"  />
+      <siteMapNode title="Scoop Tram Mucking"	url="~/Captura/Rezagado/CapturaRezagado.aspx"	description="" roles="Captura, capturaSantaElena"  />
+      <siteMapNode title="Truck Haulage"	url="~/Captura/Acarreo/CapturaAcarreo.aspx"	description="" roles="Captura, capturaSantaElena"  />
+      <siteMapNode title="Large Drilling"	url="~/Captura/Larga/CapturaBarrenacionLarga.aspx"	description="" roles="Captura" />
+      <siteMapNode title="Large Drilling"	url="~/Captura/Larga/CapturaBarrenacionLargaSE.aspx"	description=""  roles="capturaSantaElena"  />
+      <siteMapNode title="Semi-Large Drilling"	url="~/Captura/SemiLarga/CapturaBarrenacionSemilarga.aspx"	description="" roles="Captura" />
+      <siteMapNode title="Semi-Large Drilling"	url="~/Captura/SemiLarga/CapturaBarrenacionSemilargaSE.aspx"	description=""  roles="capturaSantaElena"  />
+
+      <siteMapNode title="Services"	url="~/Captura/Servicios/CapturaServicios.aspx"	description="" roles="Captura, capturaSantaElena" />
+      <siteMapNode title="Slopes"	url="~/Captura/PendientesPilon/PendientesPilon.aspx"	description="" roles="captura"  />
+      <siteMapNode title="Zarpeo"	url="~/Captura/Zarpeo/CapturaZarpeo.aspx"	description="" roles="Captura, capturaSantaElena" />
+      <siteMapNode title="Front loader"	url="~/Captura/Komatsu/CapturaKomatsu.aspx"	description="" roles="captura" />
+      <siteMapNode title="Chorros"	url="~/Captura/Chorros/CapturaChorros.aspx"	description="" roles="captura" />
+      <siteMapNode title="Anchor and Mesh"	url="~/Captura/Anclaje/CapturaAnclaje.aspx"	description="" roles="Captura, capturaSantaElena" />
+      <siteMapNode title="Plasteo y Moneo"	url="~/Captura/Plasteoymoneo/Captura.aspx"	description="" roles="Captura, capturaSantaElena" />
+
+    </siteMapNode>
+    <siteMapNode title="Query" url="" description="Consulta de Reportes" roles="Captura,ConsultaCaptura">
+      <siteMapNode title="General query"	url="~/Consulta/ConsultaPierna.aspx" description=""  />
+      <siteMapNode title="Read only general query"	url="~/Consulta/ConsultaBarrenacionSololectura.aspx" description="" />
+    </siteMapNode>
+    <siteMapNode title="Configuration" url="" description="Configuracion de la Aplicacion" roles="AdministradorUsuarios">
+      <siteMapNode title="User Activation"	url="~/Configuracion/ActivarUsuario.aspx" description="" />
+      <siteMapNode title="Update User"	url="~/Configuracion/ActualizarUsuario.aspx"	description="" />
+      <siteMapNode title="Change Password"	url="~/Configuracion/CambiarContra.aspx"	description="" />
+      <siteMapNode title="Create New User"	url="~/Configuracion/Register.aspx"	description="" />
+      <siteMapNode title="User-Contract"	url="~/Configuracion/UsuariosContratistas.aspx"	description="" />
+      <siteMapNode title="Create Rol"	url="~/Configuracion/CrearRol.aspx"	description="" />
+    </siteMapNode>
+    <siteMapNode title="Catalogs" url="" description="Catalogos" roles="Administrador,AdministradorContratista,CatalogosMantenimiento,CatalogoServiciosTecnicos,CatalogosActividadServicios,CatalogoCuadrilla">
+      <siteMapNode title="Catalog Parameters of Production"	url="~/Catalogos/Catalogo Parametros.aspx" description=""   />
+      <siteMapNode title="Catalogs Operational"	url="~/Catalogos/CatalogosOperacionales.aspx"	description="" />
+      <siteMapNode title="Catalog of Workers"	url="~/Catalogos/CatalogoTrabajador.aspx"	description="" roles="Administrador,AdministradorContratista" />
+      <siteMapNode title="Catalog Turn"	url="~/Catalogos/CatalogoTurno.aspx"	description=""    roles="" />
+      <siteMapNode title="Equipment Contractor" url="" description="Equipment Contractor" roles="Administrador,AdministradorContratista" />
+      <siteMapNode title="Catalog Equipment"	url="~/Catalogos/CatalogoEquipo.aspx"	description=""    />
+      <siteMapNode title="Catalog of Models of equipment"	url="~/Catalogos/Catalogo_Modelos.aspx"	description=""    />
+      <siteMapNode title="Catalog Incident"	url="~/Catalogos/Catalogoincidentes.aspx"	description=""   />
+      <siteMapNode title="Catalog Send Email"	url="~/Catalogos/CatalogoEnvioCorreo.aspx"	description=""   />
+      <siteMapNode title="Catolog of Period"	url="~/Catalogos/Periodo.aspx"	description=""   />
+      <siteMapNode title="Catalog of Section"	url="~/Catalogos/CatalogoSeccion.aspx"	description=""   />
+      <siteMapNode title="Catalog of Activity Services"	url="~/Catalogos/CatalogoActividasServicios.aspx"	description=""   />
+      <siteMapNode title="Catalog of Puebles"	url="~/Catalogos/catalogoPueble.aspx"	description=""  />
+      <siteMapNode title="Catalog of  Maintenance Equipment"	url="~/Catalogos/catalogoEquipoMantenimiento.aspx"	description=""  />
+      <siteMapNode title="Workshop Catalog"	url="~/Catalogos/CatalogoTaller.aspx"	description=""    />
+
+    </siteMapNode>
+    <siteMapNode title="Topography" url="" description="Medida Topografica" roles="CapturaTopografia,AprobadorTopografia">
+      <siteMapNode title="Topographical Measurement Capture"	url="~/MedidaTopografica/CapturaMedidaTopografica.aspx" description=""  roles="CapturaTopografia" />
+      <siteMapNode title="Topographical Measurement Approved"	url="~/MedidaTopografica/AprobacionTopografia.aspx" description=""   />
+      <siteMapNode title="Topographical Measurement Query" 	url="~/MedidaTopografica/ConsultaMedidaTopografica.aspx"  description=""  roles="CapturaTopografia" />
+    </siteMapNode>
+    <siteMapNode title="Query Topography" url="" description="Medida Topografica" roles="consultatopografia">
+      <siteMapNode title="Consulta Topografia" 	url="~/MedidaTopografica/ConsultaSoloLectura.aspx"  description=""  roles="consultatopografia" />
+    </siteMapNode>
+    <siteMapNode title="Gelogy" url="" description="Medida Topografica" roles="CapturaGeologia,AprobadorGeologia">
+      <siteMapNode title="Capture Geology "	url="~/Geologia/CapturaGeologia.aspx" description=""   />
+      <siteMapNode title="Appoved Geology "	url="~/Geologia/AprobacionGeologia.aspx" description=""   />
+    </siteMapNode>
+    <siteMapNode title="Pay of bonus Destajo" url="" description="Medida Topografica" roles="AprobadorDestajo,GeneradorContratosDestajo,GeneradorContratosServicios">
+      <siteMapNode title="Conditions Payment"	url="~/BonoDestajo/CatalogoContratos.aspx" description=""   />
+      <siteMapNode title="Condiciones Pago 2 Condiciones"	url="~/BonoDestajo/CatalogoContratos2.aspx" description=""   roles="GeneradorContratosDestajo"  />
+
+      <siteMapNode title="Query Conditions Payment"	url="~/BonoDestajo/ConsultaContratos.aspx" description=""   />
+      <siteMapNode title="Conditions Payment Services"	url="~/BonoDestajo/PagoServicios.aspx" description=""   />
+      <siteMapNode title="Calculate bonus of destajo"	url="~/BonoDestajo/CalculoBonoDestajo.aspx" description=""   />
+      <!--<siteMapNode title="Approval bonus of destajo"	url="~/BonoDestajo/AprobacionBonoDestajo.aspx" description=""   />-->
+      <siteMapNode title="Conditions of Bono Cuadrado"	url="~/BonoDestajo/BonoCuadrado.aspx" description=""   />
+
+    </siteMapNode>
+    
+    <siteMapNode title="Rocks Mechanics" url="" description="Mecanica de Rocas" roles="AprobadorDestajo">
+      <siteMapNode title="Anchor Validation"	url="~/ValidarAnclajeZarpeo/ValidacionAnclaje.aspx" description=""   />
+    </siteMapNode>  
+    <siteMapNode title="Contractor Reports" url="" description="Reportes Pilon Contratista" roles="ReportesPilonContratista">
+      <siteMapNode title="Inputs Report"	url="~/Reportes/ReportesPilon/InsumosContratista.aspx" description=""   />
+    </siteMapNode>
+    <siteMapNode title="Planning reports" url="" description="Reportes Pilon" roles="reportePlaneacion">
+      <siteMapNode title="Reporte Planeacion"	url="~/Reportes/ReportesPilon/ReportePlaneacion.aspx" description=""   />
+      <siteMapNode title="Inputs Report "	url="~/Reportes/ReportesPilon/Insumos.aspx" description=""   />
+      <siteMapNode title="Barrenation Effectiveness Report"	url="~/Reportes/ReportesPilon/ReportEfectividadBarrenacion.aspx" description=""   />
+    </siteMapNode>
+      
+    <siteMapNode title="Reports RH" url="" description="reports RH" roles="ReportesPilon">
+      <siteMapNode title="Services Report "	url="~/Reportes/ReportesPilon/ReporteServicios.aspx" description=""   />
+      <siteMapNode title="Acarreos Report "	url="~/Reportes/ReportesPilon/ReporteMovimientoMaterial.aspx" description=""   />
+      <siteMapNode title="Destajo Report "	url="~/Reportes/ReportesPilon/Destajo.aspx" description=""   />
+      <siteMapNode title="Prenomina Report "	url="~/Reportes/ReportesPilon/Prenomina.aspx" description=""   />
+    </siteMapNode>
+
+    <siteMapNode title="General Reports" url="" description="Reportes Generales" roles="Administrador,ConsultaReportes, reportesGenerales">
+      <siteMapNode title="Alerts Report"	url="~/Reportes/ReportesGenerales/ReporteAvisos.aspx" description=""   />
+      <siteMapNode title="Report Mooring Hours"	url="~/Reportes/ReportesGenerales/ReporteAmarreHoras.aspx" description=""   />
+      <siteMapNode title="Reporte Mooring Tons "	url="~/Reportes/ReportesGenerales/ReporteAmarreToneladas.aspx" description=""   />
+    </siteMapNode>
+
+
+    <siteMapNode title="Shift Compliance" url="" description="Reportes Generales" roles="PlanShare">
+      <siteMapNode title="Shift Compliance"	url="~/PlanShare/PlanShare.aspx" description=""   />
+    </siteMapNode>
+
+    <siteMapNode title="Digital Signage" url="" description="Digital Signage" roles="carteleraDigital">
+      <siteMapNode title="Play List"	url="~/carteleraDigital/carteleraDigital.aspx" description=""   />
+      <siteMapNode title="contents"	url="~/carteleraDigital/carteleraDigitalContenidos.aspx" description=""   />
+    </siteMapNode>
+
+        <siteMapNode title="Catalogs" url="" description="Catálogos" roles="MMAdmin,Contraloria">
+      <siteMapNode title="Companies"   url="~/MMCatalogos/Sociedades.aspx" description="" roles="MMAdmin,Contraloria"/>
+      <siteMapNode title="Mine / Work area" url="~/MMCatalogos/Minas.aspx" description="" roles="MMAdmin,Contraloria"/>
+      <siteMapNode title="Type of mining"       url="~/MMCatalogos/TipoMinado.aspx" description="" roles="MMAdmin,Contraloria"/>
+      <siteMapNode title="Imputations" url="~/MMCatalogos/Imputaciones.aspx" description="" roles="MMAdmin,Contraloria" />
+      <siteMapNode title="Type of place" url="~/MMCatalogos/TiposLugar.aspx" description="" roles="MMAdmin,Contraloria" />
+      <siteMapNode title="Material"     url="~/MMCatalogos/Materiales.aspx" description="" roles="MMAdmin,Contraloria"/>
+      <siteMapNode title="Locations"   url="~/MMCatalogos/Locaciones.aspx" description="" roles="MMAdmin,Contraloria"/>
+      <siteMapNode title="Routes"  url="~/MMCatalogos/Rutas.aspx" description=""   roles="MMAdmin,Contraloria"/>
+      <siteMapNode title="Contractors" url="~/MMCatalogos/Contratistas.aspx" description="" roles="MMAdmin,Contraloria"/>
+      <siteMapNode title="Type of job"       url="~/MMCatalogos/MM_Trabajos.aspx" description="" roles="MMAdmin,Contraloria" />
+      <siteMapNode title="Unit of measurement"       url="~/MMCatalogos/UnidadesMedida.aspx" description="" roles="MMAdmin,Contraloria" />
+      <siteMapNode title="Departments" url="~/MMCatalogos/Departamentos.aspx" description="" roles="MMAdmin,Contraloria" />
+    </siteMapNode>
+
+
+  </siteMapNode>
+
+  
+  </siteMap>
